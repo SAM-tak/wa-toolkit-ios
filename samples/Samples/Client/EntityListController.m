@@ -231,7 +231,7 @@
             loadMore.textColor = [UIColor blackColor];
             loadMore.highlightedTextColor = [UIColor darkGrayColor];
             loadMore.backgroundColor = [UIColor clearColor];
-            loadMore.textAlignment = UITextAlignmentCenter;
+            loadMore.textAlignment = NSTextAlignmentCenter;
             loadMore.font = [UIFont boldSystemFontOfSize:20];
             loadMore.text = @"Show more results...";
             [loadMoreCell addSubview:loadMore];

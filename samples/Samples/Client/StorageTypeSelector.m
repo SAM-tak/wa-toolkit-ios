@@ -73,7 +73,7 @@
 		UIBarButtonItem* item = [[UIBarButtonItem alloc] initWithTitle:@"Logout" style:UIBarButtonItemStyleBordered target:self action:@selector(logout:)];
 		self.navigationItem.leftBarButtonItem = item;
 		[item release];
-	}	
+	}
 	
 	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStyleBordered target:nil action:nil];
 	[self.navigationItem setBackBarButtonItem:backButton];
@@ -134,13 +134,15 @@
 			Azure_Storage_ClientAppDelegate *appDelegate = (Azure_Storage_ClientAppDelegate *)[[UIApplication sharedApplication] delegate];
 			appDelegate.authenticationCredential = [WAAuthenticationCredential credentialWithAzureServiceAccount:config.accountName 
 																									   accessKey:config.accessKey];
+			//WAEmuHost = @"192.168.11.19";
+			//WAEmuPort = 60000;
 			break;
 		}
 			
 		case WAConnectProxyMembership: {
 			RootViewController *newController = [[RootViewController alloc] initWithNibName:@"RootViewController" bundle:nil];
 			UINavigationController* navController = [[UINavigationController alloc] initWithRootViewController:newController];
-			[self presentModalViewController:navController animated:YES];
+			[self presentViewController:navController animated:YES completion:nil];
 			[newController release];
 			[navController release];
 			break;
@@ -220,7 +222,6 @@
 	
 	[self login:sender];
 }
-
 
 #pragma mark - UIAlertViewDelegate Methods
 

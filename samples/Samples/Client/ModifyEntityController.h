@@ -39,5 +39,5 @@
 @property (nonatomic, retain) NSString *messageString;
 
 - (IBAction)addUpdate:(id)sender;
-- (IBAction)delete:(id)sender;
+- (IBAction)deleteEntity:(id)sender;
 @end

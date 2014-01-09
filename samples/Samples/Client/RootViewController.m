@@ -116,7 +116,7 @@
 	self.navigationItem.rightBarButtonItem.enabled = YES;
 	[activity stopAnimating];
 	
-	[self dismissModalViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)loginDidFailWithError:(NSError *)error

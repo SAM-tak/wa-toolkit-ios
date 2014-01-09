@@ -24,6 +24,9 @@ NSString * const WANextPartitionKeyHeader = @"X-Ms-Continuation-Nextpartitionkey
 NSString * const WANextRowKeyHeader = @"X-Ms-Continuation-Nextrowkey";
 NSString * const WANextTableKeyHeader = @"X-Ms-Continuation-Nexttablename";
 
+NSInteger WAEmuPort = 10000;
+NSString *WAEmuHost = nil;
+
 #define SELF_SIGNED_SSL 1 // indicates that the library supports self signed SSL certs
 
 #if SELF_SIGNED_SSL
@@ -38,9 +41,36 @@ static NSLock* _lock;
 
 @implementation WACloudURLRequest
 
++ (NSURL *)emuURLWithAccountName:(NSString *)accountName withEndpoint:(NSString *)endpoint
+{
+	if(WAEmuHost) {
+		if(![endpoint hasPrefix:@"/"]&&![endpoint hasPrefix:@"?"]) endpoint = [@"/" stringByAppendingString:endpoint];
+		return [[NSURL URLWithString:[NSString stringWithFormat:@"http://%@:%d/%@%@", WAEmuHost, WAEmuPort, accountName, endpoint]] absoluteURL];
+	}
+	return nil;
+}
+
 @synthesize nextRowKey = _nextRowKey;
 @synthesize nextPartitionKey = _nextPartitionKey;
 @synthesize nextTableKey = _nextTableKey;
+
+- (id)init
+{
+	self = [super init];
+	if (self) {
+		self.cachePolicy = NSURLRequestReloadIgnoringCacheData;
+	}
+	return self;
+}
+
+- (id)initWithURL:(NSURL *)URL
+{
+	self = [super initWithURL:URL];
+	if (self) {
+		self.cachePolicy = NSURLRequestReloadIgnoringCacheData;
+	}
+	return self;
+}
 
 void ignoreSSLErrorFor(NSString* host)
 {

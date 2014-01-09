@@ -325,7 +325,7 @@
 		}
 		
 		LOG(@"%@ %@", httpMethod, url);
-		LOG(@"Headers: %@", [request allHTTPHeaderFields]);
+		LOG(@"Headers: %@", request.allHTTPHeaderFields);
 		
 		_connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];
 	}

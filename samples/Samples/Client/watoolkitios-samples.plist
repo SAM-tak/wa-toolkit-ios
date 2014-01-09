@@ -27,7 +27,7 @@
 		</dict>
 	</dict>
 	<key>CFBundleIdentifier</key>
-	<string>com.microsoft.${PRODUCT_NAME:rfc1034identifier}</string>
+	<string>net.crestra.${PRODUCT_NAME:rfc1034identifier}</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
@@ -61,13 +61,13 @@
 			<string>{the service name where the Membership Cloud Ready package is deployed}</string>
 		</dict>
 		<key>ConnectionType</key>
-		<string>{set to Direct or CloudReadySimple or CloudReadyACS}</string>
+		<string>Direct</string>
 		<key>Direct</key>
 		<dict>
 			<key>AccountName</key>
-			<string>{the name of the Windows Azure storage account}</string>
+			<string>elue</string>
 			<key>DirectAccessKey</key>
-			<string>{the access key for the storage account}</string>
+			<string>n+i3n7m6kBk65AtUMFfdeg9vGfT3u9p8b90UMs0IlVtFM8U1RZ9fA32TcazPl4Yfgjx6FWGNQZw4YICSK/ej7A==</string>
 		</dict>
 	</dict>
 	<key>UISupportedInterfaceOrientations</key>

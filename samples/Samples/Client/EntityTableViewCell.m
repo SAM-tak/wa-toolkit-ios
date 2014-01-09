@@ -111,7 +111,7 @@
 	UIColor *labelColor = [UIColor colorWithRed:3/15.0 green:6/15.0 blue:9/15.0 alpha:1.0];
 	
 	for (KeyPair* pair in a) {
-		CGSize size = [pair.key sizeWithFont:labelFont forWidth:100 lineBreakMode:UILineBreakModeTailTruncation];
+		CGSize size = [pair.key sizeWithFont:labelFont forWidth:100 lineBreakMode:NSLineBreakByTruncatingTail];
 		
 		if (size.width > labelWidth) {
 			labelWidth = size.width;
@@ -121,17 +121,17 @@
 		label.text = pair.key;
 		label.textColor = labelColor;
 		label.font = labelFont;
-		label.lineBreakMode = UILineBreakModeTailTruncation;
-		label.textAlignment = UITextAlignmentRight;
+		label.lineBreakMode = NSLineBreakByTruncatingTail;
+		label.textAlignment = NSTextAlignmentRight;
 		label.highlightedTextColor = [UIColor whiteColor];
 		
 		detail = [[UILabel alloc] initWithFrame:CGRectZero];
 		detail.text = pair.value;
 		detail.textColor = [UIColor blackColor];
 		detail.font = detailFont;
-		detail.minimumFontSize = 12;
+		detail.minimumScaleFactor = 0.8;
 		detail.adjustsFontSizeToFitWidth = YES;
-		detail.lineBreakMode = UILineBreakModeTailTruncation;
+		detail.lineBreakMode = NSLineBreakByTruncatingTail;
 		detail.highlightedTextColor = [UIColor whiteColor];
 		
 		[_subviews addObject:label];

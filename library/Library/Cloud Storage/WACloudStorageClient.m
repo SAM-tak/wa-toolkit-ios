@@ -695,7 +695,7 @@ static NSString *TABLE_UPDATE_ENTITY_REQUEST_STRING = @"<?xml version=\"1.0\" en
 	if (_credential.usesProxy) {
         NSString *endpoint = [NSString stringWithFormat:@"/SharedAccessSignatureService/blob?containerName=%@&blobPrefix=%@", [blob.containerName URLEncode], [blob.name URLEncode]]; 
         request = [_credential authenticatedRequestWithEndpoint:endpoint forStorageType:@"blob", nil];
-
+		
         [request fetchXMLWithCompletionHandler:^(WACloudURLRequest *request, xmlDocPtr doc, NSError *error) {
             if (error) {
                 if (block) {
@@ -738,6 +738,10 @@ static NSString *TABLE_UPDATE_ENTITY_REQUEST_STRING = @"<?xml version=\"1.0\" en
         NSString *endpoint = [NSString stringWithFormat:@"/%@/%@", blob.containerName, blob.name];
 		request = [_credential authenticatedRequestWithEndpoint:endpoint forStorageType:@"blob", nil];
         
+		WA_BEGIN_LOGGING
+		NSLog(@"Request Headers: %@", request.allHTTPHeaderFields);
+		WA_END_LOGGING
+		
         [request fetchDataWithCompletionHandler:^(WACloudURLRequest *request, NSData *data, NSError *error) {
             if (error) {
                 if (block) {
@@ -747,7 +751,7 @@ static NSString *TABLE_UPDATE_ENTITY_REQUEST_STRING = @"<?xml version=\"1.0\" en
                 }
                 return;
             }
-             
+			
             if (block) {
                 block(data, nil);
             } else if([_delegate respondsToSelector:@selector(storageClient:didFetchBlobData:blob:)]) {

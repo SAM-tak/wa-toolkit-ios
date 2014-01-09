@@ -154,7 +154,7 @@
 		AA094581134A2ACF00AF7EAB /* WAContainerParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WAContainerParser.m; sourceTree = "<group>"; };
 		AA094587134A2BDB00AF7EAB /* WACloudStorageClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WACloudStorageClient.h; sourceTree = "<group>"; };
 		AA094588134A2BDB00AF7EAB /* WACloudStorageClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WACloudStorageClient.m; sourceTree = "<group>"; };
-		AA09458B134A5A9D00AF7EAB /* WAAuthenticationCredential+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WAAuthenticationCredential+Private.h"; sourceTree = "<group>"; };
+		AA09458B134A5A9D00AF7EAB /* WAAuthenticationCredential+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "WAAuthenticationCredential+Private.h"; path = "../Private/WAAuthenticationCredential+Private.h"; sourceTree = "<group>"; };
 		AA5E1B8C13DE3EA300171D07 /* Logging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Logging.h; sourceTree = "<group>"; };
 		AA5E1B8D13DE3EA300171D07 /* Logging.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Logging.m; sourceTree = "<group>"; };
 		AA6521D6134D1E0C00008ADE /* WAAzureFilterBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WAAzureFilterBuilder.h; sourceTree = "<group>"; };
@@ -354,6 +354,7 @@
 			isa = PBXGroup;
 			children = (
 				AA8ACF4B134524B200D5F316 /* WAAuthenticationCredential.h */,
+				AA09458B134A5A9D00AF7EAB /* WAAuthenticationCredential+Private.h */,
 				AA8ACF4C134524B200D5F316 /* WAAuthenticationCredential.m */,
 			);
 			path = Authentication;
@@ -496,7 +497,6 @@
 				AA094558134904D800AF7EAB /* Base64 */,
 				AA8AD01813454C1C00D5F316 /* WACloudURLRequest.h */,
 				AA8AD01913454C1C00D5F316 /* WACloudURLRequest.m */,
-				AA09458B134A5A9D00AF7EAB /* WAAuthenticationCredential+Private.h */,
 				AAD7348A134D2C21000AB68A /* NSString+URLEncode.h */,
 				AA5E1B8C13DE3EA300171D07 /* Logging.h */,
 				AA5E1B8D13DE3EA300171D07 /* Logging.m */,
@@ -974,7 +974,6 @@
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2/**";
 				INSTALL_PATH = "\"$(BUILT_PRODUCTS_DIR)\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -991,9 +990,7 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEPLOYMENT_LOCATION = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2/**";
 				INSTALL_PATH = "\"$(BUILT_PRODUCTS_DIR)\"";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
@@ -1009,12 +1006,11 @@
 		C01FCF4F08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1023,12 +1019,11 @@
 		C01FCF5008A954540054247B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

@@ -32,3 +32,19 @@
 #import "WAAuthenticationCredential.h"
 #import "WACloudAccessControlClient.h"
 #import "WACloudAccessToken.h"
+
+extern NSInteger WAEmuPort;
+extern NSString *WAEmuHost;
+
+@interface NSData (WASimpleBase64)
+- (NSString *)stringWithBase64EncodedData;
+@end
+
+@interface NSString (WASimpleBase64)
+- (NSData *)dataWithBase64DecodedString;
+@end
+
+@interface NSString (URLEncode)
+- (NSString *)URLEncode;
+- (NSString *)URLDecode;
+@end

@@ -46,6 +46,8 @@ typedef void (^WANoResponseHandler)(WACloudURLRequest* request, NSError* err);
 #endif
 }
 
++ (NSURL *)emuURLWithAccountName:(NSString *)accountName withEndpoint:(NSString *)endpoint;
+
 - (void)fetchNoResponseWithCompletionHandler:(WANoResponseHandler)block;
 - (void)fetchXMLWithCompletionHandler:(WAFetchXMLHandler)block;
 - (void)fetchDataWithCompletionHandler:(WAFetchDataHandler)block;

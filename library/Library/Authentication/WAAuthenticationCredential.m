@@ -26,6 +26,10 @@
 #import "Logging.h"
 #import "NSString+URLEncode.h"
 
+
+extern NSInteger WAEmuPort;
+extern NSString *WAEmuHost;
+
 NSString * const WAXMSVersion = @"x-ms-version";
 NSString * const WAXMSVersionDate = @"2011-08-18";
 
@@ -222,8 +226,11 @@ const int AUTHENTICATION_DELAY = 2;
             serviceURL = [[NSURL URLWithString:endpoint relativeToURL:_proxyURL] absoluteURL];
         }
     } else {
-        NSString *cloudURL = [NSString stringWithFormat:@"http://%@.%@.core.windows.net/", _accountName, [storageType lowercaseString]];
-        serviceURL = [[NSURL URLWithString:endpoint relativeToURL:[NSURL URLWithString:cloudURL]] absoluteURL];
+		serviceURL = [WACloudURLRequest emuURLWithAccountName:_accountName withEndpoint:endpoint];
+		if(serviceURL==nil) {
+			NSString *cloudURL = [NSString stringWithFormat:@"http://%@.%@.core.windows.net/", _accountName, [storageType lowercaseString]];
+			serviceURL = [[NSURL URLWithString:endpoint relativeToURL:[NSURL URLWithString:cloudURL]] absoluteURL];
+		}
     }
 #else
 	NSString *servicePath = nil;
@@ -325,7 +332,7 @@ const int AUTHENTICATION_DELAY = 2;
 	NSDate *date = [NSDate date];
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     NSLocale *usLocale = [[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"] autorelease];
-    [dateFormatter setLocale:usLocale]; 
+    [dateFormatter setLocale:usLocale];
 	[dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
 	[dateFormatter setDateFormat:@"EEE, dd MMM yyyy HH:mm:ss 'GMT'"];
 	NSString *dateString = [dateFormatter stringFromDate:date];
@@ -383,7 +390,7 @@ const int AUTHENTICATION_DELAY = 2;
 	
 	if (endpoint.length > 1) {
 		[requestString appendString:[endpoint substringFromIndex:1]];
-	}             
+	}
 	if (query) {
 		[requestString appendString:query];
 	}

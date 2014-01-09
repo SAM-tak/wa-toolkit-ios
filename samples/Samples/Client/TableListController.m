@@ -202,7 +202,6 @@ typedef enum {
             WABlobContainerFetchRequest *fetchRequest = [WABlobContainerFetchRequest fetchRequestWithResultContinuation:self.resultContinuation];
             fetchRequest.maxResult = MAX_ROWS;
             [storageClient fetchBlobContainersWithRequest:fetchRequest];
-
             break;
         }
         default: {
@@ -296,7 +295,7 @@ typedef enum {
             loadMore.textColor = [UIColor blackColor];
             loadMore.highlightedTextColor = [UIColor darkGrayColor];
             loadMore.backgroundColor = [UIColor clearColor];
-            loadMore.textAlignment = UITextAlignmentCenter;
+            loadMore.textAlignment = NSTextAlignmentCenter;
             loadMore.font = [UIFont boldSystemFontOfSize:20];
             loadMore.text = @"Show more results...";
             [loadMoreCell addSubview:loadMore];
@@ -348,6 +347,8 @@ typedef enum {
 	} else {
         BlobViewerController *newController = [[BlobViewerController alloc] initWithNibName:@"BlobViewerController" bundle:nil];
         WABlob *blob = [self.localStorageList objectAtIndex:indexPath.row];
+		
+		NSLog(@"$$$$$$$$$$$$$$$$$$\nNewBlobView %@:metadata=%@:properties=%@", blob.name, blob.metadata, blob.properties);
 		
         newController.navigationItem.title = blob.name;
         newController.blob = blob;

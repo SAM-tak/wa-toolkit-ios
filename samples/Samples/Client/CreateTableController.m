@@ -86,7 +86,7 @@
 		nameLabel.text = @"Queue Message Name:";
 	}
 
-	[itemName becomeFirstResponder];
+	[self becomeFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -144,7 +144,7 @@
 
 - (IBAction)createItem:(id)sender
 {
-    [itemName resignFirstResponder];
+    //[itemName resignFirstResponder];
 	
 	if ([[itemName text] length] == 0) {
 		return;
@@ -209,7 +209,7 @@
 		imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
 	}
     
-	[self presentModalViewController:imagePicker animated:YES];
+	[self presentViewController:imagePicker animated:YES completion:nil];
 	[imagePicker release];
 }
 
@@ -282,7 +282,7 @@
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
-	[self dismissModalViewControllerAnimated:YES];
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

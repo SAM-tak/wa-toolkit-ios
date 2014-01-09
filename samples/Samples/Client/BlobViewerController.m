@@ -80,13 +80,13 @@
 - (void)viewWillDisappear:(BOOL)animated
 {
     storageClient.delegate = nil;
-    
+	
     [super viewWillDisappear:animated];
 }
 
 - (void)viewDidUnload
 {
-    self.blobImageView = nil;;
+    self.blobImageView = nil;
     
     [super viewDidUnload];
 }

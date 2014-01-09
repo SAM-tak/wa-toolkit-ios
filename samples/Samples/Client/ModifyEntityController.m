@@ -144,7 +144,7 @@
 	}
 }
 
-- (IBAction)delete:(id)sender
+- (IBAction)deleteEntity:(id)sender
 {
 	if ([self.navigationItem.title hasSuffix:@"Entity"]) {
 		[storageClient deleteEntity:entity];
