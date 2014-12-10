@@ -31,7 +31,7 @@ extern NSInteger WAEmuPort;
 extern NSString *WAEmuHost;
 
 NSString * const WAXMSVersion = @"x-ms-version";
-NSString * const WAXMSVersionDate = @"2011-08-18";
+NSString * const WAXMSVersionDate = @"2014-02-14";
 
 static NSString* PROXY_LOGIN_REQUEST_STRING = @"<Login xmlns:i=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns=\"http://schemas.datacontract.org/2004/07/Microsoft.Samples.WindowsPhoneCloud.StorageClient.Credentials\"><Password>{password}</Password><UserName>{username}</UserName></Login>";
 
